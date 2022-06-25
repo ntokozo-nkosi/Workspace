@@ -12,15 +12,15 @@ def set_stream(yt):
     for stream in stream_options:
         print(stream, "\n")
 
-    stream = pick_stream()
+    stream = pick_stream(yt)
 
     return stream
 
-def pick_stream():
+def pick_stream(yt):
     option = input("Which stream would you like to download? (Enter integer) --> ")
     return yt.streams.get_by_itag(option)
 
-def confirm_download(str):
+def confirm_download(str, yt):
     print(f"{yt.title} \n", str)
     confirm = input(f"Would you like to continue with download? (y or n) --> ")
 
@@ -33,7 +33,7 @@ def download():
     yt = get_url()
     stream = set_stream(yt)
 
-    if confirm_download(stream):
+    if confirm_download(stream, yt):
         print(f"Downloading...{yt.title}")
         stream.download("/home/darthvader/Videos")
         print("Download completed!!")
