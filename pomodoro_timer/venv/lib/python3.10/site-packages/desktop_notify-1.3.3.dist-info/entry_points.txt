@@ -1,0 +1,3 @@
+[console_scripts]
+desktop-notify = desktop_notify:run
+
